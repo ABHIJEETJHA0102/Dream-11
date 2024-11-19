@@ -1,0 +1,47 @@
+button:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+  }
+
+
+  
+  img {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  img:hover {
+    transform: scale(1.05);
+  }
+
+.dialog-scroll {
+  overflow-y: auto; 
+  max-height: 300px; 
+  padding-right: 10px; 
+}
+
+/* Custom Scrollbar */
+.dialog-scroll::-webkit-scrollbar {
+  width: 10px; /* Scrollbar width */
+}
+
+.dialog-scroll::-webkit-scrollbar-track {
+  background: #2d2d2d; /* Track background color */
+  border-radius: 5px;
+}
+
+.dialog-scroll::-webkit-scrollbar-thumb {
+  background: #870000; /* Thumb color matching your theme */
+  border-radius: 5px; /* Rounded corners for the thumb */
+  border: 2px solid #2d2d2d; /* Adds space between thumb and track */
+}
+
+/* Hover Effect on Scrollbar Thumb */
+.dialog-scroll::-webkit-scrollbar-thumb:hover {
+  background: #b30000; /* Slightly lighter red on hover */
+}
+
+/* Smooth Scrolling */
+.dialog-scroll {
+  scroll-behavior: smooth; /* Smooth scrolling experience */
+}
