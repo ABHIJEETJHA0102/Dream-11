@@ -7,11 +7,6 @@ import TeamSelection from "./pages/selectionpage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 export default function App() {
-  const navigate=useNavigate()
-  function clickHandler(){
-    navigate("/hello")
-  }
-
   return (
     <div
       className="bg-gradient-to-b from-[#3d0000] to-[#870000] text-white min-h-screen poppins"
