@@ -71,6 +71,8 @@
 
 # # Uncomment the next line if you want to enable form submission
 # # submit_to_google_form(matches)
+
+# -----------------------------------------------------------------------------------------------
 import http.client
 
 conn = http.client.HTTPSConnection("cricbuzz-cricket.p.rapidapi.com")
@@ -80,9 +82,12 @@ headers = {
     'x-rapidapi-host': "cricbuzz-cricket.p.rapidapi.com"
 }
 
-conn.request("GET", "/mcenter/v1/35878/team/89", headers=headers)
+conn.request("GET", "/mcenter/v1/35878/team/11", headers=headers)
 
 res = conn.getresponse()
 data = res.read()
 
 print(data.decode("utf-8"))
+
+# match list:
+# [2, 3, 4, 5, 6, 9, 10, 11, 12, 13, 529, 536, 25, 540, 544, 546, 549, 44, 560, 569, 2285, 1018, 1020]
