@@ -869,7 +869,7 @@
                         "seriesCategory": "International"
                     },
                     {
-                        "seriesName": "England tour of New Zealand, 2024",
+                        "seriesName": "England tour of West Indies, 2024",
                         "matchInfo": [
                             {
                                 "matchId": 92399,
@@ -879,8 +879,8 @@
                                 "startDate": "1733522400000",
                                 "endDate": "1733875199000",
                                 "team1": {
-                                    "teamId": 13,
-                                    "teamName": "New Zealand",
+                                    "teamId": 10,
+                                    "teamName": "West Indies",
                                     "teamSName": "NZ",
                                     "isFullMember": true,
                                     "imageId": 172128
@@ -893,10 +893,10 @@
                                     "imageId": 172123
                                 },
                                 "venueInfo": {
-                                    "ground": "Basin Reserve",
-                                    "city": "Wellington",
-                                    "country": "New Zealand",
-                                    "timezone": "+13:00"
+                                    "ground": "Sabina Park",
+                                    "city": "Kingston, Jamaica",
+                                    "country": "West Indies",
+                                    "timezone": "-05:00"
                                 }
                             }
                         ],

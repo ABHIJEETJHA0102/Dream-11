@@ -74,20 +74,46 @@
 
 # -----------------------------------------------------------------------------------------------
 import http.client
+import json
+import time
 
+# API setup
 conn = http.client.HTTPSConnection("cricbuzz-cricket.p.rapidapi.com")
-
 headers = {
     'x-rapidapi-key': "a94bcdc145msh730675a1916106bp1a5f70jsn7672c65f463a",
     'x-rapidapi-host': "cricbuzz-cricket.p.rapidapi.com"
 }
 
-conn.request("GET", "/mcenter/v1/35878/team/11", headers=headers)
+# List of team IDs
+match_list = [11,12,13,529]
 
-res = conn.getresponse()
-data = res.read()
+# Dictionary to store responses
+team_data = {}
 
-print(data.decode("utf-8"))
+# Make API calls and collect data
+for team_id in match_list:
+    endpoint = f"/mcenter/v1/35878/team/{team_id}"
+    try:
+        conn.request("GET", endpoint, headers=headers)
+        res = conn.getresponse()
+        data = res.read()
+        
+        # Decode and parse JSON response
+        team_data[team_id] = json.loads(data.decode("utf-8"))
+    except json.JSONDecodeError:
+        # Handle cases where the response isn't valid JSON
+        team_data[team_id] = {"error": "Invalid response or parsing error"}
+    except Exception as e:
+        # Handle other exceptions
+        team_data[team_id] = {"error": str(e)}
+    time.sleep(5)
+
+# Save the collected data to a JSON file
+output_path = "team_data_new.json"
+with open(output_path, "w") as file:
+    json.dump(team_data, file, indent=4)
+
+print(f"Data saved to {output_path}")
 
 # match list:
 # [2, 3, 4, 5, 6, 9, 10, 11, 12, 13, 529, 536, 25, 540, 544, 546, 549, 44, 560, 569, 2285, 1018, 1020]
