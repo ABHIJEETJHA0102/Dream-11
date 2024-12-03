@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../App.css";
+import IntAI from "../components/IntAI";
 
 export default function TeamSelection() {
   const [availablePlayers, setAvailablePlayers] = useState([
@@ -248,6 +249,8 @@ export default function TeamSelection() {
           </div>
         </div>
       )}
+
+      <IntAI />
     </div>
   );
 }
