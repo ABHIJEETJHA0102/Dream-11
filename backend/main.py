@@ -75,6 +75,73 @@ def format_date_to_words(timestamp):
 def read_root():
     return {"message": "Hello, World!"}
 
+@app.get("/getone")
+def get_one():
+    # Dummy data for one player
+    player = {
+        "player_name": "Player 1",
+        "player_team": "Team A",
+        "predicted_fantasy_points": 75.3,
+        "explanation": "Consistent recent performances with high strike rate and multiple wickets."
+    }
+    return {"prediction": player}
+
+@app.get("/geteleven")
+def get_eleven():
+    # Dummy data for eleven players
+    players = [
+        {
+            "player_name": f"Player {i}",
+            "player_team": f"Team {chr(65 + i % 5)}",  # Cycles through Team A to Team E
+            "predicted_fantasy_points": round(50 + (i * 5), 2),  # Increasing fantasy points
+            "explanation": f"Player {i} has shown strong performances in their role, contributing to recent wins."
+        }
+        for i in range(1, 12)  # Generate data for players 1 to 11
+    ]
+    return {"predictions": players}
+
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/getfive")
+def get_five():
+    # Dummy data for five players
+    players = [
+        {
+            "player_name": "Player 1",
+            "player_team": "Team A",
+            "predicted_fantasy_points": 75.3,
+            "explanation": "Consistent recent performances with high strike rate and multiple wickets."
+        },
+        {
+            "player_name": "Player 2",
+            "player_team": "Team B",
+            "predicted_fantasy_points": 62.8,
+            "explanation": "Strong batting performance in the last 3 matches and good fielding stats."
+        },
+        {
+            "player_name": "Player 3",
+            "player_team": "Team C",
+            "predicted_fantasy_points": 58.5,
+            "explanation": "Solid all-rounder contributions including wickets and runs in the middle order."
+        },
+        {
+            "player_name": "Player 4",
+            "player_team": "Team D",
+            "predicted_fantasy_points": 49.7,
+            "explanation": "Top-order batter with a history of consistent run-scoring in powerplays."
+        },
+        {
+            "player_name": "Player 5",
+            "player_team": "Team E",
+            "predicted_fantasy_points": 45.1,
+            "explanation": "Dependable bowler with effective economy rate in recent games."
+        }
+    ]
+    return {"predictions": players}
+
+
 @app.get("/getMatches")
 def get_matches():
     print("Fetching matches...")
