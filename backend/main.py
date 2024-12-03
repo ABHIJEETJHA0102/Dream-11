@@ -49,9 +49,7 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 # Define the allowed origins (your frontend origin)
-origins = [
-    "http://localhost:5173",  # Add your frontend URL here
-]
+origins = ["*"]
 
 # Add the CORS middleware
 app.add_middleware(
@@ -78,13 +76,13 @@ def read_root():
 @app.get("/getone")
 def get_one():
     # Dummy data for one player
-    player = {
+    player = [{
         "player_name": "Player 1",
         "player_team": "Team A",
         "predicted_fantasy_points": 75.3,
         "explanation": "Consistent recent performances with high strike rate and multiple wickets."
-    }
-    return {"prediction": player}
+    }]
+    return {"predictions": player}
 
 @app.get("/geteleven")
 def get_eleven():
@@ -99,10 +97,6 @@ def get_eleven():
         for i in range(1, 12)  # Generate data for players 1 to 11
     ]
     return {"predictions": players}
-
-from fastapi import FastAPI
-
-app = FastAPI()
 
 @app.get("/getfive")
 def get_five():
