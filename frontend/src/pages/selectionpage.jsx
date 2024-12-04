@@ -63,7 +63,7 @@ export default function TeamSelection() {
       <div>
         <p className="font-bold hover:underline">{player.name}</p>
         <p className="text-sm text-gray-300">
-          {player.role} · {player.team} · Expected Points - {player.points}
+          {player.role} · {player.team} · Average Points - {player.points}
         </p>
       </div>
       <button
