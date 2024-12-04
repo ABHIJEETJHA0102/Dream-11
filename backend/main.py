@@ -111,12 +111,13 @@ def get_five():
     # Dummy data for five players
     players = [
         {
-            "player_name": "Rohit Sharma",
+            "player_name": "Jasprit Bumrah",
             "player_team": "MI",
             "predicted_fantasy_points": 75.3,
             "explanation": (
-                "Rohit has been leading from the front with consistent batting performances in crucial matches. "
-                "He has excelled in building partnerships and maintaining a high strike rate, making him indispensable in powerplays."
+                "Bumrah has demonstrated exceptional performance with a consistent economy rate. "
+            "His recent games include multiple wicket hauls and precise death-over bowling, "
+            "making him a critical asset for his team."
             )
         },
         {
