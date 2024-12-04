@@ -1,122 +1,57 @@
 import React, { useState } from "react";
 import "../App.css";
 import IntAI from "../components/IntAI";
+import { players } from "../components/cricketers_data";
+import { toast } from 'react-toastify';
 
 export default function TeamSelection() {
-  const [availablePlayers, setAvailablePlayers] = useState([
-    {
-      id: 1,
-      name: "Rohit Sharma",
-      avatar: "https://via.placeholder.com/100",
-      points: 100,
-      role: "Batter",
-      stats: {
-        runs: 9500,
-        matches: 230,
-        strikeRate: 130.2,
-        description:
-          "Hitman of India with unmatched performance in international cricket.",
-      },
-      features: ["Explosive", "Dependable", "Captain"],
-      rating: 4.7,
-      team: "MI",
-    },
-    {
-      id: 2,
-      name: "Jasprit Bumrah",
-      avatar: "https://via.placeholder.com/100",
-      points: 150,
-      role: "Bowler",
-      stats: {
-        wickets: 250,
-        matches: 150,
-        economyRate: 6.9,
-        description: "India's top pacer known for toe-crushing yorkers.",
-      },
-      features: ["Accurate", "Unorthodox", "Death Specialist"],
-      rating: 4.9,
-      team: "MI",
-    },
-    {
-      id: 3,
-      name: "Hardik Pandya",
-      avatar: "https://via.placeholder.com/100",
-      points: 120,
-      role: "All-rounder",
-      stats: {
-        runs: 2000,
-        wickets: 70,
-        matches: 120,
-        strikeRate: 140.3,
-        description: "Aggressive all-rounder with a knack for finishing games.",
-      },
-      features: ["Dynamic", "Power-hitter", "Versatile"],
-      rating: 4.8,
-      team: "GT",
-    },
-    {
-      id: 4,
-      name: "Surya Kumar Yadav",
-      avatar: "https://via.placeholder.com/100",
-      points: 120,
-      role: "Batter",
-      stats: {
-        runs: 3000,
-        matches: 120,
-        strikeRate: 145.6,
-        description: "Mr. 360° for his wide range of innovative shots.",
-      },
-      features: ["Creative", "Consistent", "Innovative"],
-      rating: 4.6,
-      team: "MI",
-    },
-    {
-      id: 5,
-      name: "Tilak Verma",
-      avatar: "https://via.placeholder.com/100",
-      points: 120,
-      role: "Batter",
-      stats: {
-        runs: 800,
-        matches: 40,
-        strikeRate: 132.4,
-        description: "A promising young talent with great potential.",
-      },
-      features: ["Young", "Aggressive", "Reliable"],
-      rating: 4.2,
-      team: "MI",
-    },
-  ]);
-
+  const [availablePlayers, setAvailablePlayers] = useState(players);
   const [selectedTeam, setSelectedTeam] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedPlayer, setSelectedPlayer] = useState(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
 
+  // Handle adding a player to the selected team
   const handleAddPlayer = (player) => {
+    if (selectedTeam.length >= 11) {
+      toast("🔥 No more places in your team remaining!");
+      return;
+    }
     setSelectedTeam([...selectedTeam, player]);
     setAvailablePlayers(availablePlayers.filter((p) => p.id !== player.id));
   };
 
+  // Handle removing a player from the selected team
   const handleRemovePlayer = (player) => {
     setAvailablePlayers([...availablePlayers, player]);
     setSelectedTeam(selectedTeam.filter((p) => p.id !== player.id));
   };
 
+  // Handle clicking on a player's card to open the dialog
   const handlePlayerClick = (player) => {
     setSelectedPlayer(player);
     setIsDialogOpen(true);
   };
 
+  // Close the player details dialog
   const closeDialog = () => {
     setSelectedPlayer(null);
     setIsDialogOpen(false);
   };
 
+  // Show a toast message
+  const showToast = (message) => {
+    setToastMessage(message);
+    setTimeout(() => setToastMessage(""), 3000); // Clear after 3 seconds
+  };
+
+  // Filter available players based on the search query
   const filteredPlayers = availablePlayers.filter((player) =>
     player.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  // Render player cards for both available and selected lists
   const renderPlayerCard = (player, isAvailable = true) => (
     <div
       key={player.id}
@@ -128,7 +63,7 @@ export default function TeamSelection() {
       <div>
         <p className="font-bold hover:underline">{player.name}</p>
         <p className="text-sm text-gray-300">
-          {player.role} · {player.points} points
+          {player.role} · {player.team} · Expected Points - {player.points}
         </p>
       </div>
       <button
@@ -153,6 +88,13 @@ export default function TeamSelection() {
       <h1 className="text-4xl font-bold text-center my-8">
         Select your <span className="text-red-400">team</span>
       </h1>
+
+      {/* Toast Notification */}
+      {toastMessage && (
+        <div className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-red-500 text-white px-6 py-3 rounded-lg shadow-md text-center">
+          {toastMessage}
+        </div>
+      )}
 
       {/* Main Layout */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -250,7 +192,12 @@ export default function TeamSelection() {
         </div>
       )}
 
-      <IntAI />
+      <IntAI
+        selectedTeam={selectedTeam}
+        setSelectedTeam={setSelectedTeam}
+        availablePlayers={availablePlayers}
+        setAvailablePlayers={setAvailablePlayers}
+      />
     </div>
   );
 }

@@ -77,8 +77,8 @@ def read_root():
 def get_one():
     # Dummy data for one player
     player = [{
-        "player_name": "Player 1",
-        "player_team": "Team A",
+        "player_name": "Jasprit Bumrah",
+        "player_team": "MI",
         "predicted_fantasy_points": 75.3,
         "explanation": "Consistent recent performances with high strike rate and multiple wickets."
     }]
@@ -103,32 +103,32 @@ def get_five():
     # Dummy data for five players
     players = [
         {
-            "player_name": "Player 1",
-            "player_team": "Team A",
+            "player_name": "Rohit Sharma",
+            "player_team": "MI",
             "predicted_fantasy_points": 75.3,
             "explanation": "Consistent recent performances with high strike rate and multiple wickets."
         },
         {
-            "player_name": "Player 2",
-            "player_team": "Team B",
+            "player_name": "Tilak Varma",
+            "player_team": "MI",
             "predicted_fantasy_points": 62.8,
             "explanation": "Strong batting performance in the last 3 matches and good fielding stats."
         },
         {
-            "player_name": "Player 3",
-            "player_team": "Team C",
+            "player_name": "Ravindra Jadeja",
+            "player_team": "CSK",
             "predicted_fantasy_points": 58.5,
             "explanation": "Solid all-rounder contributions including wickets and runs in the middle order."
         },
         {
-            "player_name": "Player 4",
-            "player_team": "Team D",
+            "player_name": "Ruturaj Gaikwad",
+            "player_team": "CSK",
             "predicted_fantasy_points": 49.7,
             "explanation": "Top-order batter with a history of consistent run-scoring in powerplays."
         },
         {
-            "player_name": "Player 5",
-            "player_team": "Team E",
+            "player_name": "Jasprit Bumrah",
+            "player_team": "MI",
             "predicted_fantasy_points": 45.1,
             "explanation": "Dependable bowler with effective economy rate in recent games."
         }
