@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../App.css";
 import IntAI from "../components/IntAI";
-import { players } from "../components/cricketers_data";
+import { players } from "../assets/generate";
 import { toast } from 'react-toastify';
 
 export default function TeamSelection() {
