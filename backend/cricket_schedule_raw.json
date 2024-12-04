@@ -5,6 +5,43 @@
                 "date": "TUE, DEC 03 2024",
                 "matchScheduleList": [
                     {
+                        "seriesName": "IPL 2024",
+                        "matchInfo": [
+                            {
+                                "matchId": 123456,
+                                "seriesId": 9001,
+                                "matchDesc": "League Match",
+                                "matchFormat": "T20",
+                                "startDate": "1733425200000",
+                                "endDate": "1733901000000",
+                                "team1": {
+                                    "teamId": 1,
+                                    "teamName": "Chennai Super Kings",
+                                    "teamSName": "CSK",
+                                    "isFullMember": true,
+                                    "imageId": 172101
+                                },
+                                "team2": {
+                                    "teamId": 2,
+                                    "teamName": "Mumbai Indians",
+                                    "teamSName": "MI",
+                                    "isFullMember": true,
+                                    "imageId": 172102
+                                },
+                                "venueInfo": {
+                                    "ground": "M. A. Chidambaram Stadium",
+                                    "city": "Chennai",
+                                    "country": "India",
+                                    "timezone": "+05:30"
+                                },
+                                "isFantasyHandbookEnabled": true
+                            }
+                        ],
+                        "seriesId": 9001,
+                        "seriesCategory": "Domestic",
+                        "isFantasyEnabled": true
+                    },
+                    {
                         "seriesName": "Pakistan tour of Zimbabwe, 2024",
                         "matchInfo": [
                             {
