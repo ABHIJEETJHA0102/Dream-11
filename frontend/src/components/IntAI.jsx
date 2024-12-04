@@ -63,13 +63,13 @@ const IntAI = ({ selectedTeam, setSelectedTeam, availablePlayers, setAvailablePl
     return (
       <div
         key={player.player_name}
-        className={`bg-gradient-to-r ${bgColors[colorIndex]} p-4 rounded-lg flex items-center justify-between shadow-md  transform transition`}
+        className={`bg-gradient-to-r ${bgColors[colorIndex]} p-4 rounded-lg flex items-center justify-center shadow-md  transform transition`}
       >
-        <div>
+        <div className='w-[70%] mr-4'>
           <h3 className="text-xl font-bold text-white">{player.player_name}</h3>
-          <p className="text-sm text-red-200">Predicted Fantasy Points : {player.predicted_fantasy_points}</p>
+          <div className="text-sm text-red-200 ">{player.explanation}</div>
         </div>
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 ">
           <span className="bg-red-600 text-white px-3 py-2 rounded-full font-bold">
             {player.predicted_fantasy_points}
           </span>
@@ -152,7 +152,7 @@ const IntAI = ({ selectedTeam, setSelectedTeam, availablePlayers, setAvailablePl
 
       {open && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-gradient-to-b from-red-900 to-red-700 text-white w-[90%] md:w-[70%] lg:w-[60%] max-h-[90vh] overflow-hidden rounded-lg shadow-xl p-6 relative">
+          <div className="bg-gradient-to-b from-red-900 to-red-700 text-white w-[90%] md:w-[70%] lg:w-[65%] max-h-[90vh] overflow-hidden rounded-lg shadow-xl p-6 relative">
             <button
               onClick={handleClose}
               className="absolute top-4 right-4 bg-red-600 hover:bg-red-500 text-white rounded-full w-10 h-10 flex items-center justify-center"

@@ -80,7 +80,11 @@ def get_one():
         "player_name": "Jasprit Bumrah",
         "player_team": "MI",
         "predicted_fantasy_points": 75.3,
-        "explanation": "Consistent recent performances with high strike rate and multiple wickets."
+        "explanation": (
+            "Bumrah has demonstrated exceptional performance with a consistent economy rate. "
+            "His recent games include multiple wicket hauls and precise death-over bowling, "
+            "making him a critical asset for his team."
+        )
     }]
     return {"predictions": player}
 
@@ -92,7 +96,11 @@ def get_eleven():
             "player_name": f"Player {i}",
             "player_team": f"Team {chr(65 + i % 5)}",  # Cycles through Team A to Team E
             "predicted_fantasy_points": round(50 + (i * 5), 2),  # Increasing fantasy points
-            "explanation": f"Player {i} has shown strong performances in their role, contributing to recent wins."
+            "explanation": (
+                f"Player {i} has shown strong performances in their role, contributing significantly to their team's recent victories. "
+                "With consistent execution of their skills, they have played pivotal roles in high-pressure situations, "
+                "earning them a spot among the top performers."
+            )
         }
         for i in range(1, 12)  # Generate data for players 1 to 11
     ]
@@ -106,31 +114,46 @@ def get_five():
             "player_name": "Rohit Sharma",
             "player_team": "MI",
             "predicted_fantasy_points": 75.3,
-            "explanation": "Consistent recent performances with high strike rate and multiple wickets."
+            "explanation": (
+                "Rohit has been leading from the front with consistent batting performances in crucial matches. "
+                "He has excelled in building partnerships and maintaining a high strike rate, making him indispensable in powerplays."
+            )
         },
         {
             "player_name": "Tilak Varma",
             "player_team": "MI",
             "predicted_fantasy_points": 62.8,
-            "explanation": "Strong batting performance in the last 3 matches and good fielding stats."
+            "explanation": (
+                "Tilak Varma has emerged as a reliable middle-order batter with impressive performances in recent matches. "
+                "He has shown the ability to anchor innings under pressure while contributing significantly in the field."
+            )
         },
         {
             "player_name": "Ravindra Jadeja",
             "player_team": "CSK",
             "predicted_fantasy_points": 58.5,
-            "explanation": "Solid all-rounder contributions including wickets and runs in the middle order."
+            "explanation": (
+                "Jadeja has been a stellar all-rounder with key contributions in both batting and bowling. "
+                "His recent form includes vital wickets in the middle overs and impactful runs that have turned matches around for his team."
+            )
         },
         {
             "player_name": "Ruturaj Gaikwad",
             "player_team": "CSK",
             "predicted_fantasy_points": 49.7,
-            "explanation": "Top-order batter with a history of consistent run-scoring in powerplays."
+            "explanation": (
+                "Ruturaj has been a consistent performer at the top order with his ability to score heavily in powerplays. "
+                "His knack for finding gaps and converting starts into big scores has made him a dependable opener."
+            )
         },
         {
             "player_name": "Jasprit Bumrah",
             "player_team": "MI",
             "predicted_fantasy_points": 45.1,
-            "explanation": "Dependable bowler with effective economy rate in recent games."
+            "explanation": (
+                "Bumrah continues to be a game-changer with his ability to bowl yorkers at will and maintain an impressive economy rate. "
+                "His expertise in handling pressure during death overs has been pivotal for his team's success."
+            )
         }
     ]
     return {"predictions": players}
