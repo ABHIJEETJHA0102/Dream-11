@@ -181,7 +181,7 @@ export default function TeamSelection() {
                 </div>
                 <div className="mb-4">
                   <p className="font-bold">Best Formats:</p>
-                  <p>Test, ODI</p>
+                  <p>T20, ODI</p>
                 </div>
                 <div className="bg-black bg-opacity-30 p-3 rounded-md">
                   <p>Team: {selectedPlayer.team}</p>
