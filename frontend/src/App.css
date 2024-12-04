@@ -26,19 +26,18 @@ button:hover {
 }
 
 .dialog-scroll::-webkit-scrollbar-track {
-  background: #2d2d2d; /* Track background color */
-  border-radius: 5px;
+  background: rgba(255,0,0,0.1);
+  border-radius: 10px;
 }
 
 .dialog-scroll::-webkit-scrollbar-thumb {
-  background: #870000; /* Thumb color matching your theme */
-  border-radius: 5px; /* Rounded corners for the thumb */
-  border: 2px solid #2d2d2d; /* Adds space between thumb and track */
+  background: linear-gradient(to bottom, #870000, #3d0000);
+  border-radius: 10px;
 }
 
 /* Hover Effect on Scrollbar Thumb */
 .dialog-scroll::-webkit-scrollbar-thumb:hover {
-  background: #b30000; /* Slightly lighter red on hover */
+  background: linear-gradient(to bottom, #3d0000, #870000);
 }
 
 /* Smooth Scrolling */
