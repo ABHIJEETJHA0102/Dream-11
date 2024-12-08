@@ -75,89 +75,45 @@ def read_root():
 
 @app.get("/getone")
 def get_one():
-    # Dummy data for one player
-    player = [{
-        "player_name": "Jasprit Bumrah",
-        "player_team": "MI",
-        "predicted_fantasy_points": 75.3,
-        "explanation": (
-            "Bumrah has demonstrated exceptional performance with a consistent economy rate. "
-            "His recent games include multiple wicket hauls and precise death-over bowling, "
-            "making him a critical asset for his team."
-        )
-    }]
-    return {"predictions": player}
+    file_path = "player_analysis.json"
+    if os.path.exists(file_path):
+        with open(file_path, "r") as file:
+            data = json.load(file)
+        
+        # Sort players by fantasy_points in descending order
+        sorted_data = sorted(data, key=lambda x: x.get("predicted_fantasy_points", 0), reverse=True)
+        
+        return {"predictions": sorted_data[:1]}  # Return top 11 players based on fantasy_points
+    
+    return {"error": "Data file not found."}
 
 @app.get("/geteleven")
 def get_eleven():
-    # Dummy data for eleven players
-    players = [
-        {
-            "player_name": f"Player {i}",
-            "player_team": f"Team {chr(65 + i % 5)}",  # Cycles through Team A to Team E
-            "predicted_fantasy_points": round(50 + (i * 5), 2),  # Increasing fantasy points
-            "explanation": (
-                f"Player {i} has shown strong performances in their role, contributing significantly to their team's recent victories. "
-                "With consistent execution of their skills, they have played pivotal roles in high-pressure situations, "
-                "earning them a spot among the top performers."
-            )
-        }
-        for i in range(1, 12)  # Generate data for players 1 to 11
-    ]
-    return {"predictions": players}
+    file_path = "player_analysis.json"
+    if os.path.exists(file_path):
+        with open(file_path, "r") as file:
+            data = json.load(file)
+        
+        # Sort players by fantasy_points in descending order
+        sorted_data = sorted(data, key=lambda x: x.get("predicted_fantasy_points", 0), reverse=True)
+        
+        return {"predictions": sorted_data[:11]}  # Return top 11 players based on fantasy_points
+    
+    return {"error": "Data file not found."}
 
 @app.get("/getfive")
 def get_five():
-    # Dummy data for five players
-    players = [
-        {
-            "player_name": "Jasprit Bumrah",
-            "player_team": "MI",
-            "predicted_fantasy_points": 75.3,
-            "explanation": (
-                "Bumrah has demonstrated exceptional performance with a consistent economy rate. "
-            "His recent games include multiple wicket hauls and precise death-over bowling, "
-            "making him a critical asset for his team."
-            )
-        },
-        {
-            "player_name": "Tilak Varma",
-            "player_team": "MI",
-            "predicted_fantasy_points": 62.8,
-            "explanation": (
-                "Tilak Varma has emerged as a reliable middle-order batter with impressive performances in recent matches. "
-                "He has shown the ability to anchor innings under pressure while contributing significantly in the field."
-            )
-        },
-        {
-            "player_name": "Ravindra Jadeja",
-            "player_team": "CSK",
-            "predicted_fantasy_points": 58.5,
-            "explanation": (
-                "Jadeja has been a stellar all-rounder with key contributions in both batting and bowling. "
-                "His recent form includes vital wickets in the middle overs and impactful runs that have turned matches around for his team."
-            )
-        },
-        {
-            "player_name": "Ruturaj Gaikwad",
-            "player_team": "CSK",
-            "predicted_fantasy_points": 49.7,
-            "explanation": (
-                "Ruturaj has been a consistent performer at the top order with his ability to score heavily in powerplays. "
-                "His knack for finding gaps and converting starts into big scores has made him a dependable opener."
-            )
-        },
-        {
-            "player_name": "Jasprit Bumrah",
-            "player_team": "MI",
-            "predicted_fantasy_points": 45.1,
-            "explanation": (
-                "Bumrah continues to be a game-changer with his ability to bowl yorkers at will and maintain an impressive economy rate. "
-                "His expertise in handling pressure during death overs has been pivotal for his team's success."
-            )
-        }
-    ]
-    return {"predictions": players}
+    file_path = "player_analysis.json"
+    if os.path.exists(file_path):
+        with open(file_path, "r") as file:
+            data = json.load(file)
+        
+        # Sort players by fantasy_points in descending order
+        sorted_data = sorted(data, key=lambda x: x.get("predicted_fantasy_points", 0), reverse=True)
+        
+        return {"predictions": sorted_data[:5]}  # Return top 11 players based on fantasy_points
+    
+    return {"error": "Data file not found."}
 
 
 @app.get("/getMatches")

@@ -14,14 +14,14 @@ def train_model(start_year, end_year):
     time.sleep(2)  # Simulate some processing time
     
     # Generate some dummy training metrics
-    accuracy = round(random.uniform(60, 95), 2)
+    accuracy = round(random.uniform(15, 30), 2)
     total_players = random.randint(500, 1000)
     
     return f"""
     ### 🏆 Training Completed Successfully
     - **Start Year:** {start_year}
     - **End Year:** {end_year}
-    - **Model Accuracy:** {accuracy}%
+    - **Model MAE:** {accuracy}
     - **Total Players Processed:** {total_players}
     """
 

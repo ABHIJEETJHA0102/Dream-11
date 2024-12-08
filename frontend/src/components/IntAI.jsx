@@ -8,9 +8,9 @@ const IntAI = ({ selectedTeam, setSelectedTeam, availablePlayers, setAvailablePl
   const [loading, setLoading] = useState(false);
 
   const plans = [
-    { title: "Predict Top Player", number: 1, route: 'getone' },
-    { title: "Predict Top 5 Players", number: 5, route: 'getfive' },
-    { title: "Predict Top 11 Players", number: 11, route: 'geteleven' },
+    { title: "Predict Top Player", number: "Top Player", route: 'getone' },
+    { title: "Predict Top 5 Players", number: "Top 5 Players", route: 'getfive' },
+    { title: "Predict Dream Team", number: "Dream Team Players", route: 'geteleven' },
   ];
 
   const handleOpen = () => setOpen(true);
@@ -104,7 +104,7 @@ const IntAI = ({ selectedTeam, setSelectedTeam, availablePlayers, setAvailablePl
             >
               <ChevronLeft /> Go Back
             </button>
-            <h2 className="text-2xl font-bold text-white">Top {plan.number} Players</h2>
+            <h2 className="text-2xl font-bold text-white"> {plan.number}</h2>
           </div>
           <div className="max-h-[500px] overflow-y-auto space-y-4 custom-scrollbar">
             {predictions.map(renderPredictionCard)}
