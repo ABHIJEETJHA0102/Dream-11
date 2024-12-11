@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import CSVUpload from '../components/CSVUpload';
 
 export default function Homepage() {
   const [matches, setMatches] = useState([]);
@@ -12,6 +13,15 @@ export default function Homepage() {
 
   const handleMoreMatchesClick = () => {
     toast('More matches functionality coming soon!');
+  };
+
+  const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
+  const openUploadModal = () => {
+    setIsUploadModalOpen(true);
+  };
+
+  const closeUploadModal = () => {
+    setIsUploadModalOpen(false);
   };
 
   useEffect(() => {
@@ -31,6 +41,24 @@ export default function Homepage() {
       <h1 className="text-5xl mb-12 font-extrabold text-center leading-tight">
         Create your <span className="text-[#ff6b6b]">dream squad</span> today!
       </h1>
+      <div className="flex flex-col items-center my-4"
+      style={{
+        fontFamily: "'Poppins', sans-serif",
+      }}
+    >
+      <h1 className="text-2xl font-bold mb-4">
+        Check on your <span className="text-red-400">CSV</span>
+      </h1>
+      <button
+        onClick={openUploadModal}
+        className="bg-red-500 px-6 py-3 rounded-full text-white text-lg hover:bg-red-400 transition-all"
+      >
+        Upload CSV
+      </button>
+
+      {/* Render CSVUpload modal */}
+      {isUploadModalOpen && <CSVUpload onClose={closeUploadModal} />}
+    </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {matches.length > 0 ? (
           // Match Cards

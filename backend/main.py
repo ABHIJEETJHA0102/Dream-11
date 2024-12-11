@@ -42,7 +42,7 @@
 #     return {"item_id": item_id, "q": q}
 import json
 import os
-from fastapi import FastAPI
+from fastapi import FastAPI,File, UploadFile
 from datetime import datetime
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -177,3 +177,12 @@ def get_matches():
         return {"matches": matches}
     else:
         return {"error": "No schedule data found. Please generate the JSON file first."}
+
+@app.post("/upload")
+async def upload_file(file: UploadFile = File(...)):
+    try:
+        with open(f"uploaded_files/{file.filename}", "wb") as buffer:
+            shutil.copyfileobj(file.file, buffer)
+        return {"message": "File uploaded successfully!"}
+    except Exception as e:
+        return {"error": str(e)}
